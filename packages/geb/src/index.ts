@@ -6,8 +6,11 @@ import * as utils from './utils'
 import * as contracts from '@reflexer-finance/geb-contract-api'
 import { GebEthersProvider } from '@reflexer-finance/geb-ethers-provider'
 import {
+    MultiCollateralContractList,
     ContractList,
     GebProviderInterface,
+    MC_OPTIMISM_ADDRESSES,
+    MC_LOCAL_ADDRESSES,
     KOVAN_ADDRESSES,
     MAINNET_ADDRESSES,
     TransactionRequest,
@@ -22,9 +25,12 @@ export {
     GebEthersProvider,
     utils,
     contracts,
+    MC_OPTIMISM_ADDRESSES,
+    MC_LOCAL_ADDRESSES,
     KOVAN_ADDRESSES,
     MAINNET_ADDRESSES,
     // Type & Interfaces
+    MultiCollateralContractList,
     ContractList,
     TransactionRequest,
     GebProviderInterface,

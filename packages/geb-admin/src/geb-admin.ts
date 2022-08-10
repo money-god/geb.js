@@ -1,7 +1,8 @@
 import { Geb, TransactionRequest } from 'geb.js'
 import { AdminApis } from '@reflexer-finance/geb-admin-api'
 import {
-    GebDeployment,
+    MultiCollateralGebDeployment,
+    //GebDeployment,
     GebProviderInterface,
 } from '@reflexer-finance/geb-contract-base'
 import { ethers } from 'ethers'
@@ -56,7 +57,7 @@ export class GebAdmin extends Geb {
      * @param  {GebProviderInterface|ethers.providers.Provider} provider Either a Ethers.js provider or a GEB provider. Support for Web3.js will be added in the future.
      */
     constructor(
-        network: GebDeployment,
+        network: MultiCollateralGebDeployment,
         provider: GebProviderInterface | ethers.providers.Provider
     ) {
         super(network, provider)

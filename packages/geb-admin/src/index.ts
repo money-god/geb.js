@@ -7,9 +7,11 @@ import {
     GebEthersProvider,
     utils,
     contracts,
+    MC_LOCAL_ADDRESSES,
     KOVAN_ADDRESSES,
     MAINNET_ADDRESSES,
     // Type & Interfaces
+    MultiCollateralContractList,
     ContractList,
     TransactionRequest,
     GebProviderInterface,
@@ -26,9 +28,11 @@ export {
     GebEthersProvider,
     utils,
     contracts,
+    MC_LOCAL_ADDRESSES,
     KOVAN_ADDRESSES,
     MAINNET_ADDRESSES,
     // Type & Interfaces
+    MultiCollateralContractList,
     ContractList,
     TransactionRequest,
     GebProviderInterface,

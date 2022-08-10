@@ -19,6 +19,7 @@ import { GebProxyActionsGlobalSettlement } from './generated/GebProxyActionsGlob
 import { Erc20 } from './generated/ERC20'
 import { UniswapConsecutiveSlotsMedianRaiusd } from './generated/UniswapConsecutiveSlotsMedianRAIUSD'
 import { ContractApis } from './contract-apis'
+import { MultiCollateralContractApis } from './contract-apis'
 import { Multicall } from './generated/Multicall'
 import { Osm } from './generated/OSM'
 import { Weth9 } from './generated/WETH9_'
@@ -53,6 +54,7 @@ import { YearnCurveMaxSafeSaviour } from './generated/YearnCurveMaxSafeSaviour'
 
 export {
     // Factory
+    MultiCollateralContractApis,
     ContractApis,
     // Individual contracts
     AccountingEngine,
