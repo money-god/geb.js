@@ -8,6 +8,7 @@ import { TransactionRequest } from '@reflexer-finance/geb-contract-base'
 import { BytesLike } from '@ethersproject/bytes'
 import { BigNumberish } from '@ethersproject/bignumber'
 import { BigNumber } from '@ethersproject/bignumber'
+import { ethers } from 'ethers'
 
 import {
     GebProxyActions as GebProxyActionsCore,
@@ -73,6 +74,7 @@ export class GebProxyActions {
     public proxyActionSaviourAddress: string
 
     private addressList: MultiCollateralContractList
+    private collateralToJoin: Record<string, string>
     private proxyActionCore: GebProxyActionsCore
     private proxyActionGlobalSettlement: GebProxyActionsGlobalSettlement
     private proxyActionIncentive: GebProxyIncentivesActions
@@ -91,6 +93,17 @@ export class GebProxyActions {
         private chainProvider: GebProviderInterface
     ) {
         this.addressList = getMcAddressList(network)
+
+        this.collateralToJoin = {
+            'ETH-A': this.addressList.GEB_JOIN_ETH_A,
+            'ETH-B': this.addressList.GEB_JOIN_ETH_B,
+            'ETH-C': this.addressList.GEB_JOIN_ETH_C,
+            'WSTETH-A': this.addressList.GEB_JOIN_WSTETH_A,
+            'WSTETH-B': this.addressList.GEB_JOIN_WSTETH_B,
+            'RETH-A': this.addressList.GEB_JOIN_RETH_A,
+            'RETH-B': this.addressList.GEB_JOIN_RETH_B,
+            'RAI-A': this.addressList.GEB_JOIN_RAI_A,
+        }
 
         this.proxy = new DsProxy(proxyAddress, this.chainProvider)
 
@@ -207,11 +220,15 @@ export class GebProxyActions {
         )
     }
 
-    exitETH(safe: BigNumberish, wad: BigNumberish): TransactionRequest {
+    exitETH(
+        safe: BigNumberish,
+        collateralType: string,
+        wad: BigNumberish
+    ): TransactionRequest {
         return this.getProxiedTransactionRequest(
             this.proxyActionCore.exitETH(
                 this.addressList.SAFE_MANAGER,
-                this.addressList.GEB_JOIN_ETH_A,
+                this.collateralToJoin[collateralType],
                 safe,
                 wad
             )
@@ -233,11 +250,15 @@ export class GebProxyActions {
         )
     }
 
-    freeETH(safe: BigNumberish, wad: BigNumberish): TransactionRequest {
+    freeETH(
+        safe: BigNumberish,
+        collateralType: string,
+        wad: BigNumberish
+    ): TransactionRequest {
         return this.getProxiedTransactionRequest(
             this.proxyActionCore.freeETH(
                 this.addressList.SAFE_MANAGER,
-                this.addressList.GEB_JOIN_ETH_A,
+                this.collateralToJoin[collateralType],
                 safe,
                 wad
             )
@@ -289,12 +310,18 @@ export class GebProxyActions {
         )
     }
 
-    lockETH(ethValue: BigNumberish, safe: BigNumberish): TransactionRequest {
+    lockETH(
+        ethValue: BigNumberish,
+        collateralType: BytesLike,
+        safe: BigNumberish
+    ): TransactionRequest {
         return this.getProxiedTransactionRequest(
             this.proxyActionCore.lockETH(
                 BigNumber.from(ethValue),
                 this.addressList.SAFE_MANAGER,
-                this.addressList.GEB_JOIN_ETH_A,
+                this.collateralToJoin[
+                    ethers.utils.parseBytes32String(collateralType)
+                ],
                 safe
             )
         )
@@ -302,6 +329,7 @@ export class GebProxyActions {
 
     lockETHAndGenerateDebt(
         ethValue: BigNumberish,
+        collateralType: BytesLike,
         safe: BigNumberish,
         deltaWad: BigNumberish
     ): TransactionRequest {
@@ -310,7 +338,9 @@ export class GebProxyActions {
                 BigNumber.from(ethValue),
                 this.addressList.SAFE_MANAGER,
                 this.addressList.GEB_TAX_COLLECTOR,
-                this.addressList.GEB_JOIN_ETH_A,
+                this.collateralToJoin[
+                    ethers.utils.parseBytes32String(collateralType)
+                ],
                 this.addressList.GEB_COIN_JOIN,
                 safe,
                 deltaWad
@@ -421,7 +451,9 @@ export class GebProxyActions {
                 BigNumber.from(ethValue),
                 this.addressList.SAFE_MANAGER,
                 this.addressList.GEB_TAX_COLLECTOR,
-                this.addressList.GEB_JOIN_ETH_A,
+                this.collateralToJoin[
+                    ethers.utils.parseBytes32String(collateralType)
+                ],
                 this.addressList.GEB_COIN_JOIN,
                 collateralType,
                 deltaWad
@@ -440,7 +472,9 @@ export class GebProxyActions {
                 BigNumber.from(ethValue),
                 this.addressList.SAFE_MANAGER,
                 this.addressList.GEB_TAX_COLLECTOR,
-                this.addressList.GEB_JOIN_ETH_A,
+                this.collateralToJoin[
+                    ethers.utils.parseBytes32String(collateralType)
+                ],
                 this.addressList.GEB_COIN_JOIN,
                 collateralType,
                 deltaWad,
@@ -567,13 +601,14 @@ export class GebProxyActions {
     }
 
     repayAllDebtAndFreeETH(
+        collateralType: string,
         safe: BigNumberish,
         collateralWad: BigNumberish
     ): TransactionRequest {
         return this.getProxiedTransactionRequest(
             this.proxyActionCore.repayAllDebtAndFreeETH(
                 this.addressList.SAFE_MANAGER,
-                this.addressList.GEB_JOIN_ETH_A,
+                this.collateralToJoin[collateralType],
                 this.addressList.GEB_COIN_JOIN,
                 safe,
                 collateralWad
@@ -609,6 +644,7 @@ export class GebProxyActions {
     }
 
     repayDebtAndFreeETH(
+        collateralType: string,
         safe: BigNumberish,
         collateralWad: BigNumberish,
         deltaWad: BigNumberish
@@ -616,7 +652,7 @@ export class GebProxyActions {
         return this.getProxiedTransactionRequest(
             this.proxyActionCore.repayDebtAndFreeETH(
                 this.addressList.SAFE_MANAGER,
-                this.addressList.GEB_JOIN_ETH_A,
+                this.collateralToJoin[collateralType],
                 this.addressList.GEB_COIN_JOIN,
                 safe,
                 collateralWad,
@@ -645,6 +681,7 @@ export class GebProxyActions {
 
     safeLockETH(
         ethValue: BigNumberish,
+        collateralType: string,
         safe: BigNumberish,
         owner: string
     ): TransactionRequest {
@@ -652,7 +689,7 @@ export class GebProxyActions {
             this.proxyActionCore.safeLockETH(
                 BigNumber.from(ethValue),
                 this.addressList.SAFE_MANAGER,
-                this.addressList.GEB_JOIN_ETH_A,
+                this.collateralToJoin[collateralType],
                 safe,
                 owner
             )
@@ -935,6 +972,7 @@ export class GebProxyActions {
     /*
     lockETHGenerateDebtProvideLiquidityStake(
         ethValue: BigNumberish,
+        collateralType: string,
         safe: BigNumberish,
         deltaWad: BigNumberish,
         liquidityWad: BigNumberish,
@@ -946,7 +984,7 @@ export class GebProxyActions {
                 BigNumber.from(ethValue),
                 this.addressList.SAFE_MANAGER,
                 this.addressList.GEB_TAX_COLLECTOR,
-                this.addressList.GEB_JOIN_ETH_A,
+                this.collateralToJoin[collateralType],
                 this.addressList.GEB_COIN_JOIN,
                 this.addressList.UNISWAP_ROUTER,
                 campaignAddress,
@@ -962,6 +1000,7 @@ export class GebProxyActions {
     /*
     lockETHGenerateDebtProvideLiquidityUniswap(
         ethValue: BigNumberish,
+        collateralType: string,
         safe: BigNumberish,
         deltaWad: BigNumberish,
         liquidityWad: BigNumberish,
@@ -972,7 +1011,7 @@ export class GebProxyActions {
                 BigNumber.from(ethValue),
                 this.addressList.SAFE_MANAGER,
                 this.addressList.GEB_TAX_COLLECTOR,
-                this.addressList.GEB_JOIN_ETH_A,
+                this.collateralToJoin[collateralType],
                 this.addressList.GEB_COIN_JOIN,
                 this.addressList.UNISWAP_ROUTER,
                 safe,
@@ -998,7 +1037,7 @@ export class GebProxyActions {
                 BigNumber.from(ethValue),
                 this.addressList.SAFE_MANAGER,
                 this.addressList.GEB_TAX_COLLECTOR,
-                this.addressList.GEB_JOIN_ETH_A,
+                this.collateralToJoin[collateralType],
                 this.addressList.GEB_COIN_JOIN,
                 this.addressList.UNISWAP_ROUTER,
                 campaignAddress,
@@ -1023,7 +1062,7 @@ export class GebProxyActions {
                 BigNumber.from(ethValue),
                 this.addressList.SAFE_MANAGER,
                 this.addressList.GEB_TAX_COLLECTOR,
-                this.addressList.GEB_JOIN_ETH_A,
+                this.collateralToJoin[collateralType],
                 this.addressList.GEB_COIN_JOIN,
                 this.addressList.UNISWAP_ROUTER,
                 collateralType,
@@ -1199,7 +1238,9 @@ export class GebProxyActions {
             this.proxyActionLeverage.flashDeleverage(
                 uniswapV2Pair,
                 this.addressList.SAFE_MANAGER,
-                this.addressList.GEB_JOIN_ETH_A,
+                this.collateralToJoin[
+                    ethers.utils.parseBytes32String(collateralType)
+                ],
                 this.addressList.GEB_TAX_COLLECTOR,
                 this.addressList.GEB_COIN_JOIN,
                 this.addressList.ETH,
@@ -1221,7 +1262,9 @@ export class GebProxyActions {
             this.proxyActionLeverage.flashDeleverageFreeETH(
                 uniswapV2Pair,
                 this.addressList.SAFE_MANAGER,
-                this.addressList.GEB_JOIN_ETH_A,
+                this.collateralToJoin[
+                    ethers.utils.parseBytes32String(collateralType)
+                ],
                 this.addressList.GEB_TAX_COLLECTOR,
                 this.addressList.GEB_COIN_JOIN,
                 this.addressList.ETH,
@@ -1244,7 +1287,9 @@ export class GebProxyActions {
             this.proxyActionLeverage.flashLeverage(
                 uniswapV2Pair,
                 this.addressList.SAFE_MANAGER,
-                this.addressList.GEB_JOIN_ETH_A,
+                this.collateralToJoin[
+                    ethers.utils.parseBytes32String(collateralType)
+                ],
                 this.addressList.GEB_TAX_COLLECTOR,
                 this.addressList.GEB_COIN_JOIN,
                 this.addressList.ETH,
@@ -1269,7 +1314,9 @@ export class GebProxyActions {
                 BigNumber.from(ethValue),
                 uniswapV2Pair,
                 this.addressList.SAFE_MANAGER,
-                this.addressList.GEB_JOIN_ETH_A,
+                this.collateralToJoin[
+                    ethers.utils.parseBytes32String(collateralType)
+                ],
                 this.addressList.GEB_TAX_COLLECTOR,
                 this.addressList.GEB_COIN_JOIN,
                 this.addressList.ETH,
@@ -1293,7 +1340,9 @@ export class GebProxyActions {
                 BigNumber.from(ethValue),
                 uniswapV2Pair,
                 this.addressList.SAFE_MANAGER,
-                this.addressList.GEB_JOIN_ETH_A,
+                this.collateralToJoin[
+                    ethers.utils.parseBytes32String(collateralType)
+                ],
                 this.addressList.GEB_TAX_COLLECTOR,
                 this.addressList.GEB_COIN_JOIN,
                 this.addressList.ETH,
