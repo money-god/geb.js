@@ -138,6 +138,7 @@ export const testsProxyActionWithGenericGebProvider = (
                 }
             })
 
+            /*
             it('Test incentive proxy action', async () => {
                 const proxy = new GebProxyActions(
                     addresses.PROXY_DEPLOYER,
@@ -165,6 +166,7 @@ export const testsProxyActionWithGenericGebProvider = (
                     assert.ok(true)
                 }
             })
+	    */
         })
     })
 }

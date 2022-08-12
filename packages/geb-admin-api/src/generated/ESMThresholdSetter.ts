@@ -2,14 +2,103 @@
 /* tslint:disable */
 
 import { BaseContractAPI } from '@reflexer-finance/geb-contract-base'
+import { MulticallRequest } from '@reflexer-finance/geb-contract-base'
 import { TransactionRequest } from '@reflexer-finance/geb-contract-base'
+import { BytesLike } from '@ethersproject/bytes'
+import { BigNumber } from '@ethersproject/bignumber'
 
 export class EsmThresholdSetter extends BaseContractAPI {
+    addAuthorization(account: string): TransactionRequest {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"addAuthorization","outputs":[],"stateMutability":"nonpayable","type":"function"}
+
+        return this.getTransactionRequest(abi, [account])
+    }
+
+    authorizedAccounts(address: string): Promise<BigNumber>
+    authorizedAccounts(
+        address: string,
+        multicall: true
+    ): MulticallRequest<BigNumber>
+    authorizedAccounts(
+        address: string,
+        multicall?: true
+    ): Promise<BigNumber> | MulticallRequest<BigNumber> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"authorizedAccounts","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [address], multicall)
+    }
+
+    esm(): Promise<string>
+    esm(multicall: true): MulticallRequest<string>
+    esm(multicall?: true): Promise<string> | MulticallRequest<string> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[],"name":"esm","outputs":[{"internalType":"contract ESMLike","name":"","type":"address"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [], multicall)
+    }
+
+    minAmountToBurn(): Promise<BigNumber>
+    minAmountToBurn(multicall: true): MulticallRequest<BigNumber>
+    minAmountToBurn(
+        multicall?: true
+    ): Promise<BigNumber> | MulticallRequest<BigNumber> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[],"name":"minAmountToBurn","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [], multicall)
+    }
+
+    modifyParameters(parameter: BytesLike, addr: string): TransactionRequest {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[{"internalType":"bytes32","name":"parameter","type":"bytes32"},{"internalType":"address","name":"addr","type":"address"}],"name":"modifyParameters","outputs":[],"stateMutability":"nonpayable","type":"function"}
+
+        return this.getTransactionRequest(abi, [parameter, addr])
+    }
+
+    protocolToken(): Promise<string>
+    protocolToken(multicall: true): MulticallRequest<string>
+    protocolToken(
+        multicall?: true
+    ): Promise<string> | MulticallRequest<string> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[],"name":"protocolToken","outputs":[{"internalType":"contract ProtocolTokenLike","name":"","type":"address"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [], multicall)
+    }
+
     recomputeThreshold(): TransactionRequest {
         // prettier-ignore
         // @ts-ignore
         const abi = {"inputs":[],"name":"recomputeThreshold","outputs":[],"stateMutability":"nonpayable","type":"function"}
 
         return this.getTransactionRequest(abi, [])
+    }
+
+    removeAuthorization(account: string): TransactionRequest {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"removeAuthorization","outputs":[],"stateMutability":"nonpayable","type":"function"}
+
+        return this.getTransactionRequest(abi, [account])
+    }
+
+    supplyPercentageToBurn(): Promise<BigNumber>
+    supplyPercentageToBurn(multicall: true): MulticallRequest<BigNumber>
+    supplyPercentageToBurn(
+        multicall?: true
+    ): Promise<BigNumber> | MulticallRequest<BigNumber> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[],"name":"supplyPercentageToBurn","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [], multicall)
     }
 }

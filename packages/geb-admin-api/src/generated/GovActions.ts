@@ -609,6 +609,18 @@ export class GovActions extends BaseContractAPI {
         ])
     }
 
+    setMinDesiredCollateralizationRatio(
+        target: string,
+        collateralType: BytesLike,
+        cRatio: BigNumberish
+    ): TransactionRequest {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[{"internalType":"address","name":"target","type":"address"},{"internalType":"bytes32","name":"collateralType","type":"bytes32"},{"internalType":"uint256","name":"cRatio","type":"uint256"}],"name":"setMinDesiredCollateralizationRatio","outputs":[],"stateMutability":"nonpayable","type":"function"}
+
+        return this.getTransactionRequest(abi, [target, collateralType, cRatio])
+    }
+
     setName(coin: string, name: string): TransactionRequest {
         // prettier-ignore
         // @ts-ignore
@@ -789,5 +801,13 @@ export class GovActions extends BaseContractAPI {
             parameter,
             data,
         ])
+    }
+
+    updateResult(target: string, result: BigNumberish): TransactionRequest {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[{"internalType":"address","name":"target","type":"address"},{"internalType":"uint256","name":"result","type":"uint256"}],"name":"updateResult","outputs":[],"stateMutability":"nonpayable","type":"function"}
+
+        return this.getTransactionRequest(abi, [target, result])
     }
 }

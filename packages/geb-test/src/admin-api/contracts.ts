@@ -1,11 +1,11 @@
 import { GebEthersProvider } from '@reflexer-finance/geb-ethers-provider'
 import { verifyContract } from '../utils'
 import { ethers } from 'ethers'
-import { GebDeployment } from '@reflexer-finance/geb-contract-base'
+import { MultiCollateralGebDeployment } from '@reflexer-finance/geb-contract-base'
 import { AdminApis } from '@reflexer-finance/geb-admin-api'
 
 export const testContractPresence = (
-    network: GebDeployment,
+    network: MultiCollateralGebDeployment,
     ethNode: string
 ) => {
     describe(`Test that contracts are present at their expected address. Network ${network}`, () => {

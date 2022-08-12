@@ -4,7 +4,7 @@ import { CoinJoin } from './generated/CoinJoin'
 import { Coin } from './generated/Coin'
 import { DebtAuctionHouse } from './generated/DebtAuctionHouse'
 import { DsProxy } from './generated/DSProxy'
-import { FixedDiscountCollateralAuctionHouse } from './generated/FixedDiscountCollateralAuctionHouse'
+import { IncreasingDiscountCollateralAuctionHouse } from './generated/IncreasingDiscountCollateralAuctionHouse'
 import { GebProxyRegistry } from './generated/GebProxyRegistry'
 import { GebSafeManager } from './generated/GebSafeManager'
 import { GetSafes } from './generated/GetSafes'
@@ -63,7 +63,7 @@ export {
     Coin,
     DebtAuctionHouse,
     DsProxy,
-    FixedDiscountCollateralAuctionHouse,
+    IncreasingDiscountCollateralAuctionHouse,
     GebProxyRegistry,
     GebSafeManager,
     GetSafes,

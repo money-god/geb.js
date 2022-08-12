@@ -9,6 +9,50 @@ import { BigNumberish } from '@ethersproject/bignumber'
 import { BigNumber } from '@ethersproject/bignumber'
 
 export class TaxCollector extends BaseContractAPI {
+    INT256_MIN(): Promise<BigNumber>
+    INT256_MIN(multicall: true): MulticallRequest<BigNumber>
+    INT256_MIN(
+        multicall?: true
+    ): Promise<BigNumber> | MulticallRequest<BigNumber> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[],"name":"INT256_MIN","outputs":[{"internalType":"int256","name":"","type":"int256"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [], multicall)
+    }
+
+    ONE(): Promise<BigNumber>
+    ONE(multicall: true): MulticallRequest<BigNumber>
+    ONE(multicall?: true): Promise<BigNumber> | MulticallRequest<BigNumber> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[],"name":"ONE","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [], multicall)
+    }
+
+    RAY(): Promise<BigNumber>
+    RAY(multicall: true): MulticallRequest<BigNumber>
+    RAY(multicall?: true): Promise<BigNumber> | MulticallRequest<BigNumber> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[],"name":"RAY","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [], multicall)
+    }
+
+    WHOLE_TAX_CUT(): Promise<BigNumber>
+    WHOLE_TAX_CUT(multicall: true): MulticallRequest<BigNumber>
+    WHOLE_TAX_CUT(
+        multicall?: true
+    ): Promise<BigNumber> | MulticallRequest<BigNumber> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[],"name":"WHOLE_TAX_CUT","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [], multicall)
+    }
+
     addAuthorization(account: string): TransactionRequest {
         // prettier-ignore
         // @ts-ignore
