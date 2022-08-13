@@ -22,7 +22,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+t@https://github.com/reflexer-labs/geb.js.git"
+        "url": "git+https://git@github.com/reflexer-labs/geb.js.git"
     },
     "keywords": [
         "rai",
