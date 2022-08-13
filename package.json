@@ -1,7 +1,7 @@
 {
-    "name": "@reflexer-finance/geb",
-    "version": "0.0.0",
-    "description": "Javascript client for GEB reflex indexes",
+    "name": "@money-god/geb",
+    "version": "0.0.1",
+    "description": "Javascript client for multi-collateral GEB reflex indexes",
     "main": "index.js",
     "scripts": {
         "postinstall": "npm run bootstrap",
@@ -22,23 +22,22 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://git@github.com/reflexer-labs/geb.js.git"
+        "url": "git+https://github.com/money-god/geb.js.git"
     },
     "keywords": [
-        "rai",
+        "tai",
         "geb",
         "blockchain",
         "ethereum",
-        "flx",
-        "reflexer",
-        "labs"
+        "mai",
+        "money-god"
     ],
-    "author": "Guillaume Felley <guillaume@reflexer.finance>",
+    "author": "<peakaw@protonmail.com>",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/reflexer-labs/geb.js/issues"
+        "url": "https://github.com/money-god/geb.js/issues"
     },
-    "homepage": "https://github.com/reflexer-labs/geb.js#readme",
+    "homepage": "https://github.com/money-god/geb.js#readme",
     "devDependencies": {
         "@types/mocha": "^8.0.3",
         "@types/node": "^14.6.0",
