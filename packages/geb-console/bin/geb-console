@@ -54,6 +54,10 @@ async function main() {
         console.log('Start geb-console on custom RPC...')
         network = 'local'
         netId = 31337
+    } else if (network === "fantom") {
+        console.log('Start geb-console on custom RPC...')
+        network = 'fantom'
+        netId = 250
     } else {
         console.log("Unkown network please use mainnet, kovan or mainnet-fork")
         return

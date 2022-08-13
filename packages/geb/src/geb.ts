@@ -81,7 +81,7 @@ export class Geb {
      * - CoinJoin
      * - Coin (System coin ERC20 contract)
      * - GebProxyRegistry
-     * - FixedDiscountCollateralAuctionHouse
+     * - IncreasingDiscountCollateralAuctionHouse
      * - Weth (ERC20)
      *
      * For detailed information about the functions of each contract we recommend the smart contract
@@ -93,7 +93,7 @@ export class Geb {
     protected addresses: MultiCollateralContractList
     /**
      * Constructor for the main Geb.js object.
-     * @param  {MultiCollateralGebDeployment} network Either `'kovan'`, `'mainnet'` or an actual list of contract addresses.
+     * @param  {MultiCollateralGebDeployment} network Either `'kovan'`, `'mainnet'`, `'fantom'` or an actual list of contract addresses.
      * @param  {GebProviderInterface|ethers.providers.Provider} provider Either a Ethers.js provider or a Geb provider (support for Web3 will be added in the future)
      */
     constructor(
