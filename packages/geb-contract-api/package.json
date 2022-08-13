@@ -1,12 +1,12 @@
 {
-    "name": "@reflexer-finance/geb-contract-api",
-    "version": "1.1.39",
+    "name": "@money-god/geb-contract-api",
+    "version": "1.0.0",
     "description": "",
     "main": "./lib/index.js",
     "scripts": {
         "codegen": "typechain --target=./../geb-typechain/lib 'abis/*.json'"
     },
-    "author": "Guillaume Felley <guillaume@reflexer.finance>",
+    "author": "<peakaw@protonmail.com>",
     "license": "MIT",
     "dependencies": {
         "@ethersproject/bignumber": "5.x",

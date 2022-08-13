@@ -1,6 +1,6 @@
 {
     "name": "@money-god/geb",
-    "version": "0.0.1",
+    "version": "0.0.0",
     "description": "Javascript client for multi-collateral GEB reflex indexes",
     "main": "index.js",
     "scripts": {
