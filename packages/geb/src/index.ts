@@ -3,8 +3,8 @@ import { GebProxyActions } from './proxy-action'
 import { Geb } from './geb'
 
 import * as utils from './utils'
-import * as contracts from '@reflexer-finance/geb-contract-api'
-import { GebEthersProvider } from '@reflexer-finance/geb-ethers-provider'
+import * as contracts from '@money-god/geb-contract-api'
+import { GebEthersProvider } from '@money-god/geb-ethers-provider'
 import {
     MultiCollateralContractList,
     ContractList,
@@ -16,7 +16,7 @@ import {
     TransactionRequest,
     BaseContractAPI,
     GebContractAPIConstructorInterface,
-} from '@reflexer-finance/geb-contract-base'
+} from '@money-god/geb-contract-base'
 
 export {
     Geb,

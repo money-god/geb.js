@@ -1,12 +1,12 @@
 import {
     MultiCollateralContractApis,
     ContractApis,
-} from '@reflexer-finance/geb-contract-api'
-import { GebEthersProvider } from '@reflexer-finance/geb-ethers-provider'
+} from '@money-god/geb-contract-api'
+import { GebEthersProvider } from '@money-god/geb-ethers-provider'
 import { verifyContract } from '../utils'
 import { ethers } from 'ethers'
-import { GebDeployment } from '@reflexer-finance/geb-contract-base'
-import { MultiCollateralGebDeployment } from '@reflexer-finance/geb-contract-base'
+import { GebDeployment } from '@money-god/geb-contract-base'
+import { MultiCollateralGebDeployment } from '@money-god/geb-contract-base'
 
 export const testContractPresence = (
     network: GebDeployment,

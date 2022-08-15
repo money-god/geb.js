@@ -5,7 +5,7 @@ import {
     Erc20,
     //StakingRewards,
     //MerkleDistributor,
-} from '@reflexer-finance/geb-contract-api'
+} from '@money-god/geb-contract-api'
 import {
     GebProviderInterface,
     MulticallRequest,
@@ -17,8 +17,8 @@ import {
     //GebDeployment,
     BaseContractAPI,
     GebContractAPIConstructorInterface,
-} from '@reflexer-finance/geb-contract-base'
-import { GebEthersProvider } from '@reflexer-finance/geb-ethers-provider'
+} from '@money-god/geb-contract-base'
+import { GebEthersProvider } from '@money-god/geb-ethers-provider'
 import { ethers } from 'ethers'
 import { GebError, GebErrorTypes } from './errors'
 import { GebProxyActions } from './proxy-action'

@@ -39,7 +39,7 @@ import {
     GebDeployment,
     getMcAddressList,
     getAddressList,
-} from '@reflexer-finance/geb-contract-base'
+} from '@money-god/geb-contract-base'
 import { PiRateSetter } from './generated/PIRateSetter'
 import { PRawPerSecondCalculator } from './generated/PRawPerSecondCalculator'
 import { MerkleDistributorFactory } from './generated/MerkleDistributorFactory'

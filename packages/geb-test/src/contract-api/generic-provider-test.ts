@@ -6,14 +6,14 @@ import {
     MultiCollateralContractApis,
     ContractApis,
     StabilityFeeTreasury,
-} from '@reflexer-finance/geb-contract-api'
+} from '@money-god/geb-contract-api'
 import {
     MultiCollateralContractList,
     ContractList,
     GebProviderInterface,
-} from '@reflexer-finance/geb-contract-base'
+} from '@money-god/geb-contract-base'
 import { NULL_ADDRESS, ETH_A, ONE_ADDRESS } from './../const'
-import { utils } from 'geb.js'
+import { utils } from 'mcgeb.js'
 
 export const testsWithGenericGebProvider = (
     gebProvider: GebProviderInterface,

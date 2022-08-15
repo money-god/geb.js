@@ -23,9 +23,9 @@ import {
     GebProviderInterface,
     MultiCollateralGebDeployment,
     getMcAddressList,
-} from '@reflexer-finance/geb-contract-base'
+} from '@money-god/geb-contract-base'
 
-import { DsProxy } from '@reflexer-finance/geb-contract-api'
+import { DsProxy } from '@money-god/geb-contract-api'
 
 // Container class instantiate all GEB contracts
 // prettier-ignore

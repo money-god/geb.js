@@ -1,11 +1,11 @@
 import assert from 'assert'
 
-import { GebProxyRegistry } from '@reflexer-finance/geb-contract-api'
+import { GebProxyRegistry } from '@money-god/geb-contract-api'
 import {
     ContractList,
     GebProviderInterface,
-} from '@reflexer-finance/geb-contract-base'
-import { GebProxyActions, utils } from 'geb.js'
+} from '@money-god/geb-contract-base'
+import { GebProxyActions, utils } from 'mcgeb.js'
 import { NULL_ADDRESS, ETH_A, ONE_ADDRESS, WAD } from '../const'
 
 export const testsProxyActionWithGenericGebProvider = (

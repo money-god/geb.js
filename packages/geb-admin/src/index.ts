@@ -1,5 +1,5 @@
 import { GebAdmin } from './geb-admin'
-import * as adminContracts from '@reflexer-finance/geb-admin-api'
+import * as adminContracts from '@money-god/geb-admin-api'
 import {
     Geb,
     GebErrorTypes,
@@ -17,7 +17,7 @@ import {
     GebProviderInterface,
     BaseContractAPI,
     GebContractAPIConstructorInterface,
-} from 'geb.js'
+} from 'mcgeb.js'
 
 export {
     GebAdmin,

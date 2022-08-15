@@ -2,15 +2,15 @@ import assert from 'assert'
 import { NULL_ADDRESS, ONE_ADDRESS, DUMMY_PRIVATE_KEY } from '../const'
 //import { ANVIL_PRIVATE_KEY } from '../const'
 import { ethers } from 'ethers'
-import { GebEthersProvider } from '@reflexer-finance/geb-ethers-provider'
+import { GebEthersProvider } from '@money-god/geb-ethers-provider'
 import {
     SafeEngine,
     BasicCollateralJoin,
     Weth9,
     MultiCollateralContractApis,
     ContractApis,
-} from '@reflexer-finance/geb-contract-api'
-import { MultiCollateralContractList, ContractList, utils } from 'geb.js'
+} from '@money-god/geb-contract-api'
+import { MultiCollateralContractList, ContractList, utils } from 'mcgeb.js'
 
 export const testsWithEthersProvider = (
     addresses: ContractList,

@@ -3,8 +3,8 @@ import {
     MultiCollateralContractList,
     MultiCollateralGebDeployment,
     getMcAddressList,
-} from '@reflexer-finance/geb-contract-base'
-import { TransactionRequest } from '@reflexer-finance/geb-contract-base'
+} from '@money-god/geb-contract-base'
+import { TransactionRequest } from '@money-god/geb-contract-base'
 import { BytesLike } from '@ethersproject/bytes'
 import { BigNumberish } from '@ethersproject/bignumber'
 import { BigNumber } from '@ethersproject/bignumber'
@@ -20,7 +20,7 @@ import {
     GebProxySurplusAuctionActions,
     //GebProxyStakedTokenAuctionActions,
     GebProxySaviourActions,
-} from '@reflexer-finance/geb-contract-api'
+} from '@money-god/geb-contract-api'
 import { NULL_ADDRESS } from './utils'
 
 /**

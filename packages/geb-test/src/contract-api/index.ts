@@ -1,4 +1,4 @@
-import { GebEthersProvider } from '@reflexer-finance/geb-ethers-provider'
+import { GebEthersProvider } from '@money-god/geb-ethers-provider'
 import { ethers } from 'ethers'
 import { MAKER_KOVAN_NODE, MAKER_MAINNET_NODE } from './../const'
 import { testsWithGenericGebProvider } from './generic-provider-test'
@@ -7,8 +7,11 @@ import { testsWithEthersProvider } from './ehters-provider-tests'
 import { testsMcWithEthersProvider } from './ehters-provider-tests'
 import { testContractPresence } from './contracts'
 //import { testMcContractPresence } from './contracts'
-import { MC_LOCAL_ADDRESSES, KOVAN_ADDRESSES, MAINNET_ADDRESSES } from 'geb.js'
-//import { KOVAN_ADDRESSES, MAINNET_ADDRESSES } from 'geb.js'
+import {
+    MC_LOCAL_ADDRESSES,
+    KOVAN_ADDRESSES,
+    MAINNET_ADDRESSES,
+} from 'mcgeb.js'
 describe('Test contract API', async () => {
     // Kovan
     const providerKovan = new ethers.providers.StaticJsonRpcProvider(

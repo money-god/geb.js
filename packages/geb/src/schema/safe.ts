@@ -1,5 +1,5 @@
 import { BigNumber, FixedNumber } from '@ethersproject/bignumber'
-import { MultiCollateralContractApis } from '@reflexer-finance/geb-contract-api'
+import { MultiCollateralContractApis } from '@money-god/geb-contract-api'
 import { RAY } from '../utils'
 
 /**
