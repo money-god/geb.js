@@ -1,6 +1,6 @@
 {
     "name": "@money-god/geb-typechain",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "",
     "main": "./lib/index.js",
     "module": "./lib/index.js",
@@ -19,5 +19,5 @@
     "publishConfig": {
         "access": "public"
     },
-    "gitHead": "cfb41d1fe0e4dbe572905ef3ecb065e8628736f0"
+    "gitHead": "e0627bb7c504fc78cc65315ac4b98da65eeaea1b"
 }
