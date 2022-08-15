@@ -13,5 +13,9 @@
         "@money-god/geb-contract-api": "^1.0.1",
         "@money-god/geb-contract-base": "^1.0.1",
         "@money-god/geb-ethers-provider": "^1.0.1"
-    }
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "gitHead": "cfb41d1fe0e4dbe572905ef3ecb065e8628736f0"
 }

@@ -15,5 +15,9 @@
         "lodash": "^4.17.20",
         "ts-generator": "0.0.8",
         "typechain": "^2.0.0"
-    }
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "gitHead": "cfb41d1fe0e4dbe572905ef3ecb065e8628736f0"
 }

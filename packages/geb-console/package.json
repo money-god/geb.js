@@ -14,5 +14,9 @@
         "ethers": "^5.0.32",
         "hardhat": "^2.1.2",
         "open": "^7.3.0"
-    }
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "gitHead": "cfb41d1fe0e4dbe572905ef3ecb065e8628736f0"
 }

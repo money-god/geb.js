@@ -16,5 +16,9 @@
     },
     "peerDependencies": {
         "ethers": "5.x"
-    }
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "gitHead": "cfb41d1fe0e4dbe572905ef3ecb065e8628736f0"
 }
