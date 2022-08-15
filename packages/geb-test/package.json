@@ -1,6 +1,6 @@
 {
     "name": "@money-god/geb-test",
-    "version": "1.1.41",
+    "version": "1.0.0",
     "description": "",
     "main": "./lib/index.js",
     "scripts": {
@@ -9,13 +9,13 @@
     "author": "<peakaw@protonmail.com>",
     "license": "MIT",
     "dependencies": {
-        "@reflexer-finance/geb-admin": "^1.1.41",
-        "@reflexer-finance/geb-admin-api": "^1.1.41",
-        "@reflexer-finance/geb-contract-api": "^1.1.39",
-        "@reflexer-finance/geb-contract-base": "^1.1.36",
-        "@reflexer-finance/geb-ethers-provider": "^1.1.36",
+        "@money-god/geb-admin": "^1.0.0",
+        "@money-god/geb-admin-api": "^1.0.0",
+        "@money-god/geb-contract-api": "^1.0.0",
+        "@money-god/geb-contract-base": "^1.0.0",
+        "@money-god/geb-ethers-provider": "^1.0.0",
         "@types/mocha": "^8.0.3",
-        "geb.js": "^1.1.39",
+        "mcgeb.js": "^1.0.0",
         "mocha": "^8.1.3"
     }
 }
