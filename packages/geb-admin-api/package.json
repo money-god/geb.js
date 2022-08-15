@@ -1,6 +1,6 @@
 {
     "name": "@money-god/geb-admin-api",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "description": "Includes contract API from all contracts of the MC GEB ecosystem",
     "main": "./lib/index.js",
     "scripts": {
