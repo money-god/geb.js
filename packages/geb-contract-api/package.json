@@ -1,6 +1,6 @@
 {
     "name": "@money-god/geb-contract-api",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "",
     "main": "./lib/index.js",
     "scripts": {
@@ -13,7 +13,7 @@
         "@money-god/geb-contract-base": "^1.0.5"
     },
     "devDependencies": {
-        "@money-god/geb-typechain": "^1.0.5",
+        "@money-god/geb-typechain": "^1.0.6",
         "typechain": "^2.0.0"
     },
     "publishConfig": {
