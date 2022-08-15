@@ -2,7 +2,7 @@
 
 var node_repl = require('repl')
 var ethers = require('ethers')
-var geb_admin = require('@reflexer-finance/geb-admin')
+var geb_admin = require('@money-god/geb-admin')
 var http = require('http')
 var open = require('open')
 
@@ -25,7 +25,7 @@ async function main() {
     var rpcUrl = process.argv.length >= 4 ? process.argv[3] : process.env.ETH_RPC
 
     if(!rpcUrl) {
-        console.log(`Missing RPC start "geb-console <mainnet|kovan> <rpcurl>" or set ETH_RPC env var`)
+        console.log(`Missing RPC start "geb-console <mainnet|fantom> <rpcurl>" or set ETH_RPC env var`)
         return
     }
 
