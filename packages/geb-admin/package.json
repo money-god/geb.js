@@ -1,6 +1,6 @@
 {
     "name": "@money-god/geb-admin",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "",
     "main": "./lib/index.js",
     "scripts": {
@@ -10,10 +10,10 @@
     "license": "MIT",
     "dependencies": {
         "@ethersproject/bignumber": "5.x",
-        "@money-god/geb-admin-api": "^1.0.8",
-        "@money-god/geb-contract-base": "^1.0.7",
-        "@money-god/geb-ethers-provider": "^1.0.8",
-        "mcgeb.js": "^1.0.8"
+        "@money-god/geb-admin-api": "^1.0.9",
+        "@money-god/geb-contract-base": "^1.0.8",
+        "@money-god/geb-ethers-provider": "^1.0.9",
+        "mcgeb.js": "^1.0.9"
     },
     "publishConfig": {
         "access": "public"
