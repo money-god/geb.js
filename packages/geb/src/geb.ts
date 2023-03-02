@@ -90,7 +90,7 @@ export class Geb {
      */
     public contracts: MultiCollateralContractApis
     protected provider: GebProviderInterface
-    protected addresses: MultiCollateralContractList
+    public addresses: MultiCollateralContractList
     /**
      * Constructor for the main Geb.js object.
      * @param  {MultiCollateralGebDeployment} network Either `'goerli'`, `'mainnet'`, `'fantom'` or an actual list of contract addresses.
@@ -411,7 +411,7 @@ export class Geb {
             this.provider.decodeFunctionData(raw, calls[i].abi)
         )
 
-        return (a as unknown) as T[]
+        return a as unknown as T[]
     }
     /**
      * Returns an instance of a specific geb contract given a Geb contract API class constructor at a specified address
