@@ -1,6 +1,6 @@
 {
     "name": "@money-god/geb-typechain",
-    "version": "1.0.22",
+    "version": "1.0.23",
     "description": "",
     "main": "./lib/index.js",
     "module": "./lib/index.js",
