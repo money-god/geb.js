@@ -125,7 +125,7 @@ export class ContractApis {
         this.yearnCurveMaxSafeSaviour = new YearnCurveMaxSafeSaviour(addressList.GEB_YEARN_CURVE_MAX_SAVIOUR, this.chainProvider)
         this.saviourCRatioSetter = new SaviourCRatioSetter(addressList.GEB_SAVIOUR_CRATIO_SETTER, this.chainProvider)
         this.saviourUniswapLiquidityManager = new UniswapLiquidityManagerLike(addressList.GEB_UNISWAP_SAVIOUR_LIQUIDITY_MANAGER, this.chainProvider)
-        this.uniswapV3PairCoinEth = new UniswapV3Pool(addressList.GEB_COIN_UNISWAP_V3_POOL, this.chainProvider)
+        this.uniswapV3PairCoinEth = new UniswapV3Pool(addressList.GEB_COIN_ETH_INCENTIVES_UNI_PAIR, this.chainProvider)
         this.uniswapV3TwoTrancheLiquidityManager = new GebUniswapV3TwoTrancheManager(addressList.GEB_UNISWAP_TWO_TRANCHE_MANAGER, this.chainProvider)
         this.stakingFirstResort = new GebLenderFirstResort(addressList.GEB_STAKING, this.chainProvider)
         this.stakingAuctionHouse = new StakedTokenAuctionHouse(addressList.GEB_STAKING_AUCTION_HOUSE, this.chainProvider)
