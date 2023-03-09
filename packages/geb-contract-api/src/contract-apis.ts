@@ -1,5 +1,6 @@
 import {
     AccountingEngine,
+    BunniHub,
     TaxCollector,
     LiquidationEngine,
     OracleRelayer,
@@ -125,7 +126,7 @@ export class ContractApis {
         this.yearnCurveMaxSafeSaviour = new YearnCurveMaxSafeSaviour(addressList.GEB_YEARN_CURVE_MAX_SAVIOUR, this.chainProvider)
         this.saviourCRatioSetter = new SaviourCRatioSetter(addressList.GEB_SAVIOUR_CRATIO_SETTER, this.chainProvider)
         this.saviourUniswapLiquidityManager = new UniswapLiquidityManagerLike(addressList.GEB_UNISWAP_SAVIOUR_LIQUIDITY_MANAGER, this.chainProvider)
-        this.uniswapV3PairCoinEth = new UniswapV3Pool(addressList.GEB_COIN_ETH_INCENTIVES_UNI_PAIR, this.chainProvider)
+        this.uniswapV3PairCoinEth = new UniswapV3Pool(addressList.GEB_COIN_UNISWAP_V3_POOL, this.chainProvider)
         this.uniswapV3TwoTrancheLiquidityManager = new GebUniswapV3TwoTrancheManager(addressList.GEB_UNISWAP_TWO_TRANCHE_MANAGER, this.chainProvider)
         this.stakingFirstResort = new GebLenderFirstResort(addressList.GEB_STAKING, this.chainProvider)
         this.stakingAuctionHouse = new StakedTokenAuctionHouse(addressList.GEB_STAKING_AUCTION_HOUSE, this.chainProvider)
@@ -160,6 +161,8 @@ export class MultiCollateralContractApis {
     public joinRAI_A: BasicCollateralJoin
     public joinCoin: CoinJoin
     public coin: Coin
+    public bunniHub: BunniHub
+    public uniswapV3PairCoinEth: UniswapV3Pool
     public proxyRegistry: GebProxyRegistry
     public collateralAuctionHouseETH_A: IncreasingDiscountCollateralAuctionHouse
     public collateralAuctionHouseETH_B: IncreasingDiscountCollateralAuctionHouse
@@ -204,6 +207,8 @@ export class MultiCollateralContractApis {
         this.joinRAI_A = new BasicCollateralJoin(addressList.GEB_JOIN_RAI_A, this.chainProvider)
         this.joinCoin = new CoinJoin(addressList.GEB_COIN_JOIN, this.chainProvider)
         this.coin = new Coin(addressList.GEB_COIN, this.chainProvider)
+        this.bunniHub = new BunniHub(addressList.BUNNI_HUB, this.chainProvider)
+        this.uniswapV3PairCoinEth = new UniswapV3Pool(addressList.GEB_COIN_ETH_INCENTIVES_UNI_PAIR, this.chainProvider)
         this.proxyRegistry = new GebProxyRegistry(addressList.PROXY_REGISTRY, this.chainProvider)
         this.protocolToken = new DsDelegateToken(addressList.GEB_PROT, this.chainProvider)
         this.collateralAuctionHouseETH_A = new IncreasingDiscountCollateralAuctionHouse(addressList.COLLATERAL_AUCTION_HOUSE_ETH_A, this.chainProvider)
