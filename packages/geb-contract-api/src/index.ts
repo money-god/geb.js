@@ -1,9 +1,11 @@
 import { AccountingEngine } from './generated/AccountingEngine'
 import { BasicCollateralJoin } from './generated/BasicCollateralJoin'
+import { BunniHub } from './generated/BunniHub'
 import { CoinJoin } from './generated/CoinJoin'
 import { Coin } from './generated/Coin'
 import { DebtAuctionHouse } from './generated/DebtAuctionHouse'
 import { DebtRewards } from './generated/DebtRewards'
+import { LiquidityRewards } from './generated/LiquidityRewards'
 import { DsProxy } from './generated/DSProxy'
 import { IncreasingDiscountCollateralAuctionHouse } from './generated/IncreasingDiscountCollateralAuctionHouse'
 import { GebProxyRegistry } from './generated/GebProxyRegistry'
@@ -60,10 +62,12 @@ export {
     // Individual contracts
     AccountingEngine,
     BasicCollateralJoin,
+    BunniHub,
     CoinJoin,
     Coin,
     DebtAuctionHouse,
     DebtRewards,
+    LiquidityRewards,
     DsProxy,
     IncreasingDiscountCollateralAuctionHouse,
     GebProxyRegistry,

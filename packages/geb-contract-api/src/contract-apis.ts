@@ -1,11 +1,13 @@
 import {
     AccountingEngine,
+    BunniHub,
     TaxCollector,
     LiquidationEngine,
     OracleRelayer,
     GlobalSettlement,
     DebtAuctionHouse,
     DebtRewards,
+    LiquidityRewards,
     Coin,
     GebSafeManager,
     GetSafes,
@@ -146,6 +148,7 @@ export class MultiCollateralContractApis {
     public globalSettlement: GlobalSettlement
     public debtAuctionHouse: DebtAuctionHouse
     public debtRewards: DebtRewards
+    public liquidityRewards: LiquidityRewards
     public surplusAuctionHouse: BurningSurplusAuctionHouse
     public stabilityFeeTreasury: StabilityFeeTreasury
     public safeManager: GebSafeManager
@@ -160,6 +163,9 @@ export class MultiCollateralContractApis {
     public joinRAI_A: BasicCollateralJoin
     public joinCoin: CoinJoin
     public coin: Coin
+    public bunniHub: BunniHub
+    public bunniToken: Erc20
+    public uniswapV3PairCoinEth: UniswapV3Pool
     public proxyRegistry: GebProxyRegistry
     public collateralAuctionHouseETH_A: IncreasingDiscountCollateralAuctionHouse
     public collateralAuctionHouseETH_B: IncreasingDiscountCollateralAuctionHouse
@@ -190,6 +196,7 @@ export class MultiCollateralContractApis {
         this.globalSettlement = new GlobalSettlement(addressList.GEB_GLOBAL_SETTLEMENT, this.chainProvider)
         this.debtAuctionHouse = new DebtAuctionHouse(addressList.GEB_DEBT_AUCTION_HOUSE, this.chainProvider)
         this.debtRewards = new DebtRewards(addressList.GEB_DEBT_REWARDS, this.chainProvider)
+        this.liquidityRewards = new LiquidityRewards(addressList.GEB_LIQUIDITY_REWARDS, this.chainProvider)
         this.surplusAuctionHouse = new BurningSurplusAuctionHouse(addressList.GEB_SURPLUS_AUCTION_HOUSE, this.chainProvider)
         this.stabilityFeeTreasury = new StabilityFeeTreasury(addressList.GEB_STABILITY_FEE_TREASURY, this.chainProvider)
         this.safeManager = new GebSafeManager(addressList.SAFE_MANAGER, this.chainProvider)
@@ -204,6 +211,9 @@ export class MultiCollateralContractApis {
         this.joinRAI_A = new BasicCollateralJoin(addressList.GEB_JOIN_RAI_A, this.chainProvider)
         this.joinCoin = new CoinJoin(addressList.GEB_COIN_JOIN, this.chainProvider)
         this.coin = new Coin(addressList.GEB_COIN, this.chainProvider)
+        this.bunniHub = new BunniHub(addressList.BUNNI_HUB, this.chainProvider)
+        this.bunniToken = new Erc20(addressList.GEB_BUNNI_INCENTIVES_TOKEN, this.chainProvider)
+        this.uniswapV3PairCoinEth = new UniswapV3Pool(addressList.GEB_COIN_ETH_INCENTIVES_UNI_PAIR, this.chainProvider)
         this.proxyRegistry = new GebProxyRegistry(addressList.PROXY_REGISTRY, this.chainProvider)
         this.protocolToken = new DsDelegateToken(addressList.GEB_PROT, this.chainProvider)
         this.collateralAuctionHouseETH_A = new IncreasingDiscountCollateralAuctionHouse(addressList.COLLATERAL_AUCTION_HOUSE_ETH_A, this.chainProvider)
