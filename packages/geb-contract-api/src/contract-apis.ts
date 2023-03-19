@@ -19,7 +19,7 @@ import {
     SafeEngine,
     ChainlinkRelayer,
     UniswapConsecutiveSlotsMedianRaiusd,
-    Osm,
+    ExternallyFundedOsm,
     StabilityFeeTreasury,
     DsDelegateToken,
     StakingRewardsFactory,
@@ -72,7 +72,7 @@ export class ContractApis {
     public medianizerCoin: UniswapConsecutiveSlotsMedianRaiusd
     public rateSetter: PiRateSetter
     public piCalculator: PRawPerSecondCalculator
-    public fsmEth: Osm
+    public fsmEth: ExternallyFundedOsm
     public weth: Weth9
     public stakingRewardFactory: StakingRewardsFactory
     public uniswapPairCoinEth: UniswapV2Pair
@@ -117,7 +117,7 @@ export class ContractApis {
         this.medianizerCoin = new UniswapConsecutiveSlotsMedianRaiusd(addressList.MEDIANIZER_RAI, this.chainProvider)
         this.rateSetter = new PiRateSetter(addressList.GEB_RRFM_SETTER, this.chainProvider)
         this.piCalculator = new PRawPerSecondCalculator(addressList.GEB_RRFM_CALCULATOR, this.chainProvider)
-        this.fsmEth = new Osm(addressList.FEED_SECURITY_MODULE_ETH, this.chainProvider)
+        this.fsmEth = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_ETH, this.chainProvider)
         this.weth = new Weth9(addressList.ETH, this.chainProvider)
         this.protocolToken = new DsDelegateToken(addressList.GEB_PROT, this.chainProvider)
         this.stakingRewardFactory = new StakingRewardsFactory(addressList.GEB_INCENTIVES_MINER, this.chainProvider)
@@ -161,6 +161,10 @@ export class MultiCollateralContractApis {
     public joinRETH_A: BasicCollateralJoin
     public joinRETH_B: BasicCollateralJoin
     public joinRAI_A: BasicCollateralJoin
+    public fsmEth: ExternallyFundedOsm
+    public fsmWstEth: ExternallyFundedOsm
+    public fsmREth: ExternallyFundedOsm
+    public fsmRai: ExternallyFundedOsm
     public joinCoin: CoinJoin
     public coin: Coin
     public bunniHub: BunniHub
@@ -227,7 +231,10 @@ export class MultiCollateralContractApis {
         //this.medianizerCoin = new UniswapConsecutiveSlotsMedianRaiusd(addressList.MEDIANIZER_RAI, this.chainProvider)
         this.rateSetter = new PiRateSetter(addressList.GEB_RRFM_SETTER, this.chainProvider)
         this.piCalculator = new PRawPerSecondCalculator(addressList.GEB_RRFM_CALCULATOR, this.chainProvider)
-        //this.fsmEth = new Osm(addressList.FEED_SECURITY_MODULE_ETH, this.chainProvider)
+        this.fsmEth = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_ETH, this.chainProvider)
+        this.fsmWstEth = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_WSTETH, this.chainProvider)
+        this.fsmREth = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_RETH, this.chainProvider)
+        this.fsmRai = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_RAI, this.chainProvider)
         this.weth = new Weth9(addressList.ETH, this.chainProvider)
     }
 }
