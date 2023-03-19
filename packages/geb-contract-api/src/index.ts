@@ -24,7 +24,8 @@ import { UniswapConsecutiveSlotsMedianRaiusd } from './generated/UniswapConsecut
 import { ContractApis } from './contract-apis'
 import { MultiCollateralContractApis } from './contract-apis'
 import { Multicall } from './generated/Multicall'
-import { ExternallyFundedOsm } from './generated/OSM'
+import { ExternallyFundedOsm } from './generated/ExternallyFundedOSM'
+import { Osm } from './generated/OSM'
 import { Weth9 } from './generated/WETH9_'
 import { PiRateSetter } from './generated/PIRateSetter'
 import { PRawPerSecondCalculator } from './generated/PRawPerSecondCalculator'
@@ -83,6 +84,7 @@ export {
     GebProxyActionsGlobalSettlement,
     Multicall,
     Erc20,
+    ExternallyFundedOsm,
     Osm,
     PRawPerSecondCalculator,
     PiRateSetter,
