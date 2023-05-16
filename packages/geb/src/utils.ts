@@ -162,6 +162,8 @@ export {
     WSTETH_B,
     RETH_A,
     RETH_B,
+    CBETH_A,
+    CBETH_B,
     RAI_A,
     NULL_ADDRESS,
     WAD,

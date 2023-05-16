@@ -166,6 +166,7 @@ export class MultiCollateralContractApis {
     public fsmEth: ExternallyFundedOsm
     public fsmWstEth: ExternallyFundedOsm
     public fsmREth: ExternallyFundedOsm
+    public fsmCBEth: ExternallyFundedOsm
     public fsmRai: ExternallyFundedOsm
     public joinCoin: CoinJoin
     public coin: Coin
