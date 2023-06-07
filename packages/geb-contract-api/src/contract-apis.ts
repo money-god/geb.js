@@ -35,6 +35,8 @@ import {
     DsDelegateTokenNoTransfer,
     StakingRewardsEscrow,
     YearnCurveMaxSafeSaviour,
+    ProtEmitter,
+    Sablier,
 } from '.'
 import {
     GebProviderInterface,
@@ -188,6 +190,8 @@ export class MultiCollateralContractApis {
     public rateSetter: PiRateSetter
     public piCalculator: PRawPerSecondCalculator
     public weth: Weth9
+    public protEmitter: ProtEmitter
+    public sablier: Sablier
 
     constructor(
         network: MultiCollateralGebDeployment,
@@ -246,5 +250,7 @@ export class MultiCollateralContractApis {
         this.fsmCBEth = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_CBETH, this.chainProvider)
         this.fsmRai = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_RAI, this.chainProvider)
         this.weth = new Weth9(addressList.ETH, this.chainProvider)
+        this.protEmitter = new ProtEmitter(addressList.GEB_PROT_EMITTER, this.chainProvider)
+        this.sablier = new Sablier(addressList.SABLIER, this.chainProvider)
     }
 }

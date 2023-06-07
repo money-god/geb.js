@@ -10,6 +10,7 @@ import {
     ContractList,
     GebProviderInterface,
     MC_GOERLI_ADDRESSES,
+    MC_MAINNET_ADDRESSES,
     MC_LOCAL_ADDRESSES,
     MAINNET_ADDRESSES,
     TransactionRequest,
@@ -25,6 +26,7 @@ export {
     utils,
     contracts,
     MC_GOERLI_ADDRESSES,
+    MC_MAINNET_ADDRESSES,
     MC_LOCAL_ADDRESSES,
     MAINNET_ADDRESSES,
     // Type & Interfaces

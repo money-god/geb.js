@@ -11,6 +11,7 @@ export const ANVIL_PRIVATE_KEY =
 
 export const INFURA_MAINNET =
     'https://mainnet.infura.io/v3/f674e7ddb53f46a6b10ec1762339b245'
+//export const INFURA_GOERLI = 'https://goerli.infura.io/v3/f674e7ddb53f46a6b10ec1762339b245'
 export const INFURA_GOERLI =
-    'https://goerli.infura.io/v3/f674e7ddb53f46a6b10ec1762339b245'
+    'https://eth-goerli.g.alchemy.com/v2/DFENRh0JnTKqRBNo60vLXyKGS9b4xC6h'
 export const WAD = ethers.BigNumber.from('1000000000000000000')
