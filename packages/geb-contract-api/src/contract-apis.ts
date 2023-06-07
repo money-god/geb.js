@@ -160,10 +160,13 @@ export class MultiCollateralContractApis {
     public joinWSTETH_B: BasicCollateralJoin
     public joinRETH_A: BasicCollateralJoin
     public joinRETH_B: BasicCollateralJoin
+    public joinCBETH_A: BasicCollateralJoin
+    public joinCBETH_B: BasicCollateralJoin
     public joinRAI_A: BasicCollateralJoin
     public fsmEth: ExternallyFundedOsm
     public fsmWstEth: ExternallyFundedOsm
     public fsmREth: ExternallyFundedOsm
+    public fsmCBEth: ExternallyFundedOsm
     public fsmRai: ExternallyFundedOsm
     public joinCoin: CoinJoin
     public coin: Coin
@@ -178,6 +181,8 @@ export class MultiCollateralContractApis {
     public collateralAuctionHouseWSTETH_B: IncreasingDiscountCollateralAuctionHouse
     public collateralAuctionHouseRETH_A: IncreasingDiscountCollateralAuctionHouse
     public collateralAuctionHouseRETH_B: IncreasingDiscountCollateralAuctionHouse
+    public collateralAuctionHouseCBETH_A: IncreasingDiscountCollateralAuctionHouse
+    public collateralAuctionHouseCBETH_B: IncreasingDiscountCollateralAuctionHouse
     public collateralAuctionHouseRAI_A: IncreasingDiscountCollateralAuctionHouse
     public protocolToken: DsDelegateToken
     public rateSetter: PiRateSetter
@@ -212,6 +217,8 @@ export class MultiCollateralContractApis {
         this.joinWSTETH_B = new BasicCollateralJoin(addressList.GEB_JOIN_WSTETH_B, this.chainProvider)
         this.joinRETH_A = new BasicCollateralJoin(addressList.GEB_JOIN_RETH_A, this.chainProvider)
         this.joinRETH_B = new BasicCollateralJoin(addressList.GEB_JOIN_RETH_B, this.chainProvider)
+        this.joinCBETH_A = new BasicCollateralJoin(addressList.GEB_JOIN_CBETH_A, this.chainProvider)
+        this.joinCBETH_B = new BasicCollateralJoin(addressList.GEB_JOIN_CBETH_B, this.chainProvider)
         this.joinRAI_A = new BasicCollateralJoin(addressList.GEB_JOIN_RAI_A, this.chainProvider)
         this.joinCoin = new CoinJoin(addressList.GEB_COIN_JOIN, this.chainProvider)
         this.coin = new Coin(addressList.GEB_COIN, this.chainProvider)
@@ -227,6 +234,8 @@ export class MultiCollateralContractApis {
         this.collateralAuctionHouseWSTETH_B = new IncreasingDiscountCollateralAuctionHouse(addressList.COLLATERAL_AUCTION_HOUSE_WSTETH_B, this.chainProvider)
         this.collateralAuctionHouseRETH_A = new IncreasingDiscountCollateralAuctionHouse(addressList.COLLATERAL_AUCTION_HOUSE_RETH_A, this.chainProvider)
         this.collateralAuctionHouseRETH_B = new IncreasingDiscountCollateralAuctionHouse(addressList.COLLATERAL_AUCTION_HOUSE_RETH_B, this.chainProvider)
+        this.collateralAuctionHouseCBETH_A = new IncreasingDiscountCollateralAuctionHouse(addressList.COLLATERAL_AUCTION_HOUSE_CBETH_A, this.chainProvider)
+        this.collateralAuctionHouseCBETH_B = new IncreasingDiscountCollateralAuctionHouse(addressList.COLLATERAL_AUCTION_HOUSE_CBETH_B, this.chainProvider)
         this.collateralAuctionHouseRAI_A = new IncreasingDiscountCollateralAuctionHouse(addressList.COLLATERAL_AUCTION_HOUSE_RAI_A, this.chainProvider)
         //this.medianizerCoin = new UniswapConsecutiveSlotsMedianRaiusd(addressList.MEDIANIZER_RAI, this.chainProvider)
         this.rateSetter = new PiRateSetter(addressList.GEB_RRFM_SETTER, this.chainProvider)
@@ -234,6 +243,7 @@ export class MultiCollateralContractApis {
         this.fsmEth = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_ETH, this.chainProvider)
         this.fsmWstEth = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_WSTETH, this.chainProvider)
         this.fsmREth = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_RETH, this.chainProvider)
+        this.fsmCBEth = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_CBETH, this.chainProvider)
         this.fsmRai = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_RAI, this.chainProvider)
         this.weth = new Weth9(addressList.ETH, this.chainProvider)
     }

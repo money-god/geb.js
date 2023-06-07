@@ -67,6 +67,7 @@ async function main() {
     console.log('- ETH_A                      - RETH_A')
     console.log('- ETH_B                      - RETH_B')
     console.log('- ETH_C                      - RAI_A')
+    console.log('- CBETH_A                    - CBETH_B')
     console.log('- WSTETH_A                   - WAD')
     console.log('- WSTETH_B                   - RAD')
     console.log('- WAD                        - RAY')

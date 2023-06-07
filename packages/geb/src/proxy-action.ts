@@ -74,7 +74,7 @@ export class GebProxyActions {
     public proxyActionSaviourAddress: string
 
     private addressList: MultiCollateralContractList
-    public  collateralToJoin: Record<string, string>
+    public collateralToJoin: Record<string, string>
     private proxyActionCore: GebProxyActionsCore
     private proxyActionGlobalSettlement: GebProxyActionsGlobalSettlement
     private proxyActionIncentive: GebProxyIncentivesActions
@@ -103,6 +103,8 @@ export class GebProxyActions {
             'RETH-A': this.addressList.GEB_JOIN_RETH_A,
             'RETH-B': this.addressList.GEB_JOIN_RETH_B,
             'RAI-A': this.addressList.GEB_JOIN_RAI_A,
+            'CBETH-A': this.addressList.GEB_JOIN_CBETH_A,
+            'CBETH-B': this.addressList.GEB_JOIN_CBETH_B,
         }
 
         this.proxy = new DsProxy(proxyAddress, this.chainProvider)
