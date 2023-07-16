@@ -1,6 +1,6 @@
 {
     "name": "mcgeb.js",
-    "version": "1.2.7",
+    "version": "1.2.8",
     "description": "",
     "main": "./lib/index.js",
     "scripts": {
@@ -10,9 +10,9 @@
     "license": "MIT",
     "dependencies": {
         "@ethersproject/bignumber": "5.x",
-        "@money-god/geb-contract-api": "^1.2.6",
-        "@money-god/geb-contract-base": "^1.2.5",
-        "@money-god/geb-ethers-provider": "^1.2.5"
+        "@money-god/geb-contract-api": "^1.2.7",
+        "@money-god/geb-contract-base": "^1.2.6",
+        "@money-god/geb-ethers-provider": "^1.2.6"
     },
     "publishConfig": {
         "access": "public"
