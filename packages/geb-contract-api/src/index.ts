@@ -55,6 +55,8 @@ import { GebProxyStakedTokenAuctionActions } from './generated/GebProxyStakedTok
 import { StakingRewardsEscrow } from './generated/StakingRewardsEscrow'
 import { SimpleStakingRewards } from './generated/SimpleStakingRewards'
 import { YearnCurveMaxSafeSaviour } from './generated/YearnCurveMaxSafeSaviour'
+import { ProtEmitter } from './generated/ProtEmitter'
+import { Sablier } from './generated/Sablier'
 
 export {
     // Factory
@@ -116,4 +118,6 @@ export {
     StakingRewardsEscrow,
     SimpleStakingRewards,
     YearnCurveMaxSafeSaviour,
+    ProtEmitter,
+    Sablier,
 }
