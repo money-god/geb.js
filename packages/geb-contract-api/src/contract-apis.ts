@@ -20,6 +20,7 @@ import {
     ChainlinkRelayer,
     UniswapConsecutiveSlotsMedianRaiusd,
     ExternallyFundedOsm,
+    BasefeeOsmDeviationCallBundler,
     StabilityFeeTreasury,
     DsDelegateToken,
     StakingRewardsFactory,
@@ -170,6 +171,11 @@ export class MultiCollateralContractApis {
     public fsmREth: ExternallyFundedOsm
     public fsmCBEth: ExternallyFundedOsm
     public fsmRai: ExternallyFundedOsm
+    public ethBundler: BasefeeOsmDeviationCallBundler
+    public wstethBundler: BasefeeOsmDeviationCallBundler
+    public rethBundler: BasefeeOsmDeviationCallBundler
+    public cbethBundler: BasefeeOsmDeviationCallBundler
+    public raiBundler: BasefeeOsmDeviationCallBundler
     public joinCoin: CoinJoin
     public coin: Coin
     public bunniHub: BunniHub
@@ -249,6 +255,11 @@ export class MultiCollateralContractApis {
         this.fsmREth = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_RETH, this.chainProvider)
         this.fsmCBEth = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_CBETH, this.chainProvider)
         this.fsmRai = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_RAI, this.chainProvider)
+        this.ethBundler = new BasefeeOsmDeviationCallBundler(addressList.GEB_OSM_INCENTIVES_ETH, this.chainProvider)
+        this.wstethBundler = new BasefeeOsmDeviationCallBundler(addressList.GEB_OSM_INCENTIVES_WSTETH, this.chainProvider)
+        this.rethBundler = new BasefeeOsmDeviationCallBundler(addressList.GEB_OSM_INCENTIVES_RETH, this.chainProvider)
+        this.cbethBundler = new BasefeeOsmDeviationCallBundler(addressList.GEB_OSM_INCENTIVES_CBETH, this.chainProvider)
+        this.raiBundler = new BasefeeOsmDeviationCallBundler(addressList.GEB_OSM_INCENTIVES_RAI, this.chainProvider)
         this.weth = new Weth9(addressList.ETH, this.chainProvider)
         this.protEmitter = new ProtEmitter(addressList.GEB_PROT_EMITTER, this.chainProvider)
         this.sablier = new Sablier(addressList.SABLIER, this.chainProvider)
