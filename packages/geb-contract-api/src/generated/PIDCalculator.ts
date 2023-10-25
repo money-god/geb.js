@@ -4,71 +4,371 @@
 import { BaseContractAPI } from '@money-god/geb-contract-base'
 import { MulticallRequest } from '@money-god/geb-contract-base'
 import { TransactionRequest } from '@money-god/geb-contract-base'
+import { BytesLike } from '@ethersproject/bytes'
 import { BigNumberish } from '@ethersproject/bignumber'
 import { BigNumber } from '@ethersproject/bignumber'
 
 export class PidCalculator extends BaseContractAPI {
-    computeRate(
-        uinteger1: BigNumberish,
-        uinteger2: BigNumberish,
-        uinteger3: BigNumberish
-    ): TransactionRequest {
+    RAY(): Promise<BigNumber>
+    RAY(multicall: true): MulticallRequest<BigNumber>
+    RAY(multicall?: true): Promise<BigNumber> | MulticallRequest<BigNumber> {
         // prettier-ignore
         // @ts-ignore
-        const abi = {"inputs":[{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"}],"name":"computeRate","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"nonpayable","type":"function"}
-
-        return this.getTransactionRequest(abi, [
-            uinteger1,
-            uinteger2,
-            uinteger3,
-        ])
-    }
-
-    pscl(): Promise<BigNumber>
-    pscl(multicall: true): MulticallRequest<BigNumber>
-    pscl(multicall?: true): Promise<BigNumber> | MulticallRequest<BigNumber> {
-        // prettier-ignore
-        // @ts-ignore
-        const abi = {"inputs":[],"name":"pscl","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}
+        const abi = {"inputs":[],"name":"RAY","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}
 
         return this.ethCallOrMulticall(abi, [], multicall)
     }
 
-    rt(
-        uinteger1: BigNumberish,
-        uinteger2: BigNumberish,
-        uinteger3: BigNumberish
-    ): Promise<BigNumber>
-    rt(
-        uinteger1: BigNumberish,
-        uinteger2: BigNumberish,
-        uinteger3: BigNumberish,
-        multicall: true
-    ): MulticallRequest<BigNumber>
-    rt(
-        uinteger1: BigNumberish,
-        uinteger2: BigNumberish,
-        uinteger3: BigNumberish,
+    addAuthority(account: string): TransactionRequest {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"addAuthority","outputs":[],"stateMutability":"nonpayable","type":"function"}
+
+        return this.getTransactionRequest(abi, [account])
+    }
+
+    authorities(address: string): Promise<BigNumber>
+    authorities(address: string, multicall: true): MulticallRequest<BigNumber>
+    authorities(
+        address: string,
         multicall?: true
     ): Promise<BigNumber> | MulticallRequest<BigNumber> {
         // prettier-ignore
         // @ts-ignore
-        const abi = {"inputs":[{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"}],"name":"rt","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}
+        const abi = {"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"authorities","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}
 
-        return this.ethCallOrMulticall(
-            abi,
-            [uinteger1, uinteger2, uinteger3],
-            multicall
-        )
+        return this.ethCallOrMulticall(abi, [address], multicall)
     }
 
-    tlv(): Promise<BigNumber>
-    tlv(multicall: true): MulticallRequest<BigNumber>
-    tlv(multicall?: true): Promise<BigNumber> | MulticallRequest<BigNumber> {
+    boundPiOutput(piOutput: BigNumberish): Promise<BigNumber>
+    boundPiOutput(
+        piOutput: BigNumberish,
+        multicall: true
+    ): MulticallRequest<BigNumber>
+    boundPiOutput(
+        piOutput: BigNumberish,
+        multicall?: true
+    ): Promise<BigNumber> | MulticallRequest<BigNumber> {
         // prettier-ignore
         // @ts-ignore
-        const abi = {"inputs":[],"name":"tlv","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}
+        const abi = {"inputs":[{"internalType":"int256","name":"piOutput","type":"int256"}],"name":"boundPiOutput","outputs":[{"internalType":"int256","name":"","type":"int256"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [piOutput], multicall)
+    }
+
+    coBias(): Promise<BigNumber>
+    coBias(multicall: true): MulticallRequest<BigNumber>
+    coBias(multicall?: true): Promise<BigNumber> | MulticallRequest<BigNumber> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[],"name":"coBias","outputs":[{"internalType":"int256","name":"","type":"int256"}],"stateMutability":"view","type":"function"}
 
         return this.ethCallOrMulticall(abi, [], multicall)
+    }
+
+    controlVariable(): Promise<string>
+    controlVariable(multicall: true): MulticallRequest<string>
+    controlVariable(
+        multicall?: true
+    ): Promise<string> | MulticallRequest<string> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[],"name":"controlVariable","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [], multicall)
+    }
+
+    elapsed(): Promise<BigNumber>
+    elapsed(multicall: true): MulticallRequest<BigNumber>
+    elapsed(
+        multicall?: true
+    ): Promise<BigNumber> | MulticallRequest<BigNumber> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[],"name":"elapsed","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [], multicall)
+    }
+
+    errorIntegral(): Promise<BigNumber>
+    errorIntegral(multicall: true): MulticallRequest<BigNumber>
+    errorIntegral(
+        multicall?: true
+    ): Promise<BigNumber> | MulticallRequest<BigNumber> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[],"name":"errorIntegral","outputs":[{"internalType":"int256","name":"","type":"int256"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [], multicall)
+    }
+
+    getNextErrorIntegral(
+        error: BigNumberish
+    ): Promise<{
+        0: BigNumber
+        1: BigNumber
+    }>
+    getNextErrorIntegral(
+        error: BigNumberish,
+        multicall: true
+    ): MulticallRequest<{
+        0: BigNumber
+        1: BigNumber
+    }>
+    getNextErrorIntegral(
+        error: BigNumberish,
+        multicall?: true
+    ):
+        | Promise<{
+              0: BigNumber
+              1: BigNumber
+          }>
+        | MulticallRequest<{
+              0: BigNumber
+              1: BigNumber
+          }> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[{"internalType":"int256","name":"error","type":"int256"}],"name":"getNextErrorIntegral","outputs":[{"internalType":"int256","name":"","type":"int256"},{"internalType":"int256","name":"","type":"int256"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [error], multicall)
+    }
+
+    getNextPiOutput(
+        error: BigNumberish
+    ): Promise<{
+        0: BigNumber
+        1: BigNumber
+        2: BigNumber
+    }>
+    getNextPiOutput(
+        error: BigNumberish,
+        multicall: true
+    ): MulticallRequest<{
+        0: BigNumber
+        1: BigNumber
+        2: BigNumber
+    }>
+    getNextPiOutput(
+        error: BigNumberish,
+        multicall?: true
+    ):
+        | Promise<{
+              0: BigNumber
+              1: BigNumber
+              2: BigNumber
+          }>
+        | MulticallRequest<{
+              0: BigNumber
+              1: BigNumber
+              2: BigNumber
+          }> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[{"internalType":"int256","name":"error","type":"int256"}],"name":"getNextPiOutput","outputs":[{"internalType":"int256","name":"","type":"int256"},{"internalType":"int256","name":"","type":"int256"},{"internalType":"int256","name":"","type":"int256"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [error], multicall)
+    }
+
+    getRawPiOutput(
+        error: BigNumberish,
+        errorI: BigNumberish
+    ): Promise<{
+        0: BigNumber
+        1: BigNumber
+        2: BigNumber
+    }>
+    getRawPiOutput(
+        error: BigNumberish,
+        errorI: BigNumberish,
+        multicall: true
+    ): MulticallRequest<{
+        0: BigNumber
+        1: BigNumber
+        2: BigNumber
+    }>
+    getRawPiOutput(
+        error: BigNumberish,
+        errorI: BigNumberish,
+        multicall?: true
+    ):
+        | Promise<{
+              0: BigNumber
+              1: BigNumber
+              2: BigNumber
+          }>
+        | MulticallRequest<{
+              0: BigNumber
+              1: BigNumber
+              2: BigNumber
+          }> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[{"internalType":"int256","name":"error","type":"int256"},{"internalType":"int256","name":"errorI","type":"int256"}],"name":"getRawPiOutput","outputs":[{"internalType":"int256","name":"","type":"int256"},{"internalType":"int256","name":"","type":"int256"},{"internalType":"int256","name":"","type":"int256"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [error, errorI], multicall)
+    }
+
+    ki(): Promise<BigNumber>
+    ki(multicall: true): MulticallRequest<BigNumber>
+    ki(multicall?: true): Promise<BigNumber> | MulticallRequest<BigNumber> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[],"name":"ki","outputs":[{"internalType":"int256","name":"","type":"int256"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [], multicall)
+    }
+
+    kp(): Promise<BigNumber>
+    kp(multicall: true): MulticallRequest<BigNumber>
+    kp(multicall?: true): Promise<BigNumber> | MulticallRequest<BigNumber> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[],"name":"kp","outputs":[{"internalType":"int256","name":"","type":"int256"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [], multicall)
+    }
+
+    lastError(): Promise<BigNumber>
+    lastError(multicall: true): MulticallRequest<BigNumber>
+    lastError(
+        multicall?: true
+    ): Promise<BigNumber> | MulticallRequest<BigNumber> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[],"name":"lastError","outputs":[{"internalType":"int256","name":"","type":"int256"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [], multicall)
+    }
+
+    lastUpdateTime(): Promise<BigNumber>
+    lastUpdateTime(multicall: true): MulticallRequest<BigNumber>
+    lastUpdateTime(
+        multicall?: true
+    ): Promise<BigNumber> | MulticallRequest<BigNumber> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[],"name":"lastUpdateTime","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [], multicall)
+    }
+
+    modifyParameters__Bytes32Int256(
+        parameter: BytesLike,
+        val: BigNumberish
+    ): TransactionRequest {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[{"internalType":"bytes32","name":"parameter","type":"bytes32"},{"internalType":"int256","name":"val","type":"int256"}],"name":"modifyParameters","outputs":[],"stateMutability":"nonpayable","type":"function"}
+
+        return this.getTransactionRequest(abi, [parameter, val])
+    }
+
+    modifyParameters__Bytes32Address(
+        parameter: BytesLike,
+        addr: string
+    ): TransactionRequest {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[{"internalType":"bytes32","name":"parameter","type":"bytes32"},{"internalType":"address","name":"addr","type":"address"}],"name":"modifyParameters","outputs":[],"stateMutability":"nonpayable","type":"function"}
+
+        return this.getTransactionRequest(abi, [parameter, addr])
+    }
+
+    modifyParameters__Bytes32Uint256(
+        parameter: BytesLike,
+        val: BigNumberish
+    ): TransactionRequest {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[{"internalType":"bytes32","name":"parameter","type":"bytes32"},{"internalType":"uint256","name":"val","type":"uint256"}],"name":"modifyParameters","outputs":[],"stateMutability":"nonpayable","type":"function"}
+
+        return this.getTransactionRequest(abi, [parameter, val])
+    }
+
+    outputLowerBound(): Promise<BigNumber>
+    outputLowerBound(multicall: true): MulticallRequest<BigNumber>
+    outputLowerBound(
+        multicall?: true
+    ): Promise<BigNumber> | MulticallRequest<BigNumber> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[],"name":"outputLowerBound","outputs":[{"internalType":"int256","name":"","type":"int256"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [], multicall)
+    }
+
+    outputUpperBound(): Promise<BigNumber>
+    outputUpperBound(multicall: true): MulticallRequest<BigNumber>
+    outputUpperBound(
+        multicall?: true
+    ): Promise<BigNumber> | MulticallRequest<BigNumber> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[],"name":"outputUpperBound","outputs":[{"internalType":"int256","name":"","type":"int256"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [], multicall)
+    }
+
+    perSecondIntegralLeak(): Promise<BigNumber>
+    perSecondIntegralLeak(multicall: true): MulticallRequest<BigNumber>
+    perSecondIntegralLeak(
+        multicall?: true
+    ): Promise<BigNumber> | MulticallRequest<BigNumber> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[],"name":"perSecondIntegralLeak","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [], multicall)
+    }
+
+    removeAuthority(account: string): TransactionRequest {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"removeAuthority","outputs":[],"stateMutability":"nonpayable","type":"function"}
+
+        return this.getTransactionRequest(abi, [account])
+    }
+
+    rpower(
+        x: BigNumberish,
+        n: BigNumberish,
+        base: BigNumberish
+    ): Promise<BigNumber>
+    rpower(
+        x: BigNumberish,
+        n: BigNumberish,
+        base: BigNumberish,
+        multicall: true
+    ): MulticallRequest<BigNumber>
+    rpower(
+        x: BigNumberish,
+        n: BigNumberish,
+        base: BigNumberish,
+        multicall?: true
+    ): Promise<BigNumber> | MulticallRequest<BigNumber> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[{"internalType":"uint256","name":"x","type":"uint256"},{"internalType":"uint256","name":"n","type":"uint256"},{"internalType":"uint256","name":"base","type":"uint256"}],"name":"rpower","outputs":[{"internalType":"uint256","name":"z","type":"uint256"}],"stateMutability":"pure","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [x, n, base], multicall)
+    }
+
+    seedProposer(): Promise<string>
+    seedProposer(multicall: true): MulticallRequest<string>
+    seedProposer(multicall?: true): Promise<string> | MulticallRequest<string> {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[],"name":"seedProposer","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"}
+
+        return this.ethCallOrMulticall(abi, [], multicall)
+    }
+
+    update(error: BigNumberish): TransactionRequest {
+        // prettier-ignore
+        // @ts-ignore
+        const abi = {"inputs":[{"internalType":"int256","name":"error","type":"int256"}],"name":"update","outputs":[{"internalType":"int256","name":"","type":"int256"},{"internalType":"int256","name":"","type":"int256"},{"internalType":"int256","name":"","type":"int256"}],"stateMutability":"nonpayable","type":"function"}
+
+        return this.getTransactionRequest(abi, [error])
     }
 }

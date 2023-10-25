@@ -19,7 +19,9 @@ import {
     SafeEngine,
     ChainlinkRelayer,
     UniswapConsecutiveSlotsMedianRaiusd,
+    UniV3ChainlinkTwapConverterFeed,
     ExternallyFundedOsm,
+    BasefeeRateTwapCallBundler,
     BasefeeOsmDeviationCallBundler,
     StabilityFeeTreasury,
     DsDelegateToken,
@@ -171,6 +173,8 @@ export class MultiCollateralContractApis {
     public fsmREth: ExternallyFundedOsm
     public fsmCBEth: ExternallyFundedOsm
     public fsmRai: ExternallyFundedOsm
+    public medianizerTai: UniV3ChainlinkTwapConverterFeed
+    public rateTwapBundler: BasefeeRateTwapCallBundler
     public ethBundler: BasefeeOsmDeviationCallBundler
     public wstethBundler: BasefeeOsmDeviationCallBundler
     public rethBundler: BasefeeOsmDeviationCallBundler
@@ -219,6 +223,7 @@ export class MultiCollateralContractApis {
         this.surplusAuctionHouse = new BurningSurplusAuctionHouse(addressList.GEB_SURPLUS_AUCTION_HOUSE, this.chainProvider)
         this.stabilityFeeTreasury = new StabilityFeeTreasury(addressList.GEB_STABILITY_FEE_TREASURY, this.chainProvider)
         this.safeManager = new GebSafeManager(addressList.SAFE_MANAGER, this.chainProvider)
+        this.medianizerTai = new UniV3ChainlinkTwapConverterFeed(addressList.GEB_FEED_TAI_USD, this.chainProvider)
         this.getSafes = new GetSafes(addressList.GET_SAFES, this.chainProvider)
         this.joinETH_A = new BasicCollateralJoin(addressList.GEB_JOIN_ETH_A, this.chainProvider)
         this.joinETH_B = new BasicCollateralJoin(addressList.GEB_JOIN_ETH_B, this.chainProvider)
@@ -255,6 +260,7 @@ export class MultiCollateralContractApis {
         this.fsmREth = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_RETH, this.chainProvider)
         this.fsmCBEth = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_CBETH, this.chainProvider)
         this.fsmRai = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_RAI, this.chainProvider)
+        this.rateTwapBundler = new BasefeeRateTwapCallBundler(addressList.GEB_RATE_TWAP_INCENTIVES, this.chainProvider)
         this.ethBundler = new BasefeeOsmDeviationCallBundler(addressList.GEB_OSM_INCENTIVES_ETH, this.chainProvider)
         this.wstethBundler = new BasefeeOsmDeviationCallBundler(addressList.GEB_OSM_INCENTIVES_WSTETH, this.chainProvider)
         this.rethBundler = new BasefeeOsmDeviationCallBundler(addressList.GEB_OSM_INCENTIVES_RETH, this.chainProvider)
