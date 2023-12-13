@@ -167,11 +167,13 @@ export class MultiCollateralContractApis {
     public joinRETH_B: BasicCollateralJoin
     public joinCBETH_A: BasicCollateralJoin
     public joinCBETH_B: BasicCollateralJoin
+    public joinWOETH_A: BasicCollateralJoin
     public joinRAI_A: BasicCollateralJoin
     public fsmEth: ExternallyFundedOsm
     public fsmWstEth: ExternallyFundedOsm
     public fsmREth: ExternallyFundedOsm
     public fsmCBEth: ExternallyFundedOsm
+    public fsmWOEth: ExternallyFundedOsm
     public fsmRai: ExternallyFundedOsm
     public medianizerTai: UniV3ChainlinkTwapConverterFeed
     public rateTwapBundler: BasefeeRateTwapCallBundler
@@ -179,6 +181,7 @@ export class MultiCollateralContractApis {
     public wstethBundler: BasefeeOsmDeviationCallBundler
     public rethBundler: BasefeeOsmDeviationCallBundler
     public cbethBundler: BasefeeOsmDeviationCallBundler
+    public woethBundler: BasefeeOsmDeviationCallBundler
     public raiBundler: BasefeeOsmDeviationCallBundler
     public joinCoin: CoinJoin
     public coin: Coin
@@ -195,6 +198,7 @@ export class MultiCollateralContractApis {
     public collateralAuctionHouseRETH_B: IncreasingDiscountCollateralAuctionHouse
     public collateralAuctionHouseCBETH_A: IncreasingDiscountCollateralAuctionHouse
     public collateralAuctionHouseCBETH_B: IncreasingDiscountCollateralAuctionHouse
+    public collateralAuctionHouseWOETH_A: IncreasingDiscountCollateralAuctionHouse
     public collateralAuctionHouseRAI_A: IncreasingDiscountCollateralAuctionHouse
     public protocolToken: DsDelegateToken
     public rateSetter: PiRateSetter
@@ -234,6 +238,7 @@ export class MultiCollateralContractApis {
         this.joinRETH_B = new BasicCollateralJoin(addressList.GEB_JOIN_RETH_B, this.chainProvider)
         this.joinCBETH_A = new BasicCollateralJoin(addressList.GEB_JOIN_CBETH_A, this.chainProvider)
         this.joinCBETH_B = new BasicCollateralJoin(addressList.GEB_JOIN_CBETH_B, this.chainProvider)
+        this.joinWOETH_A = new BasicCollateralJoin(addressList.GEB_JOIN_WOETH_A, this.chainProvider)
         this.joinRAI_A = new BasicCollateralJoin(addressList.GEB_JOIN_RAI_A, this.chainProvider)
         this.joinCoin = new CoinJoin(addressList.GEB_COIN_JOIN, this.chainProvider)
         this.coin = new Coin(addressList.GEB_COIN, this.chainProvider)
@@ -251,6 +256,7 @@ export class MultiCollateralContractApis {
         this.collateralAuctionHouseRETH_B = new IncreasingDiscountCollateralAuctionHouse(addressList.COLLATERAL_AUCTION_HOUSE_RETH_B, this.chainProvider)
         this.collateralAuctionHouseCBETH_A = new IncreasingDiscountCollateralAuctionHouse(addressList.COLLATERAL_AUCTION_HOUSE_CBETH_A, this.chainProvider)
         this.collateralAuctionHouseCBETH_B = new IncreasingDiscountCollateralAuctionHouse(addressList.COLLATERAL_AUCTION_HOUSE_CBETH_B, this.chainProvider)
+        this.collateralAuctionHouseWOETH_A = new IncreasingDiscountCollateralAuctionHouse(addressList.COLLATERAL_AUCTION_HOUSE_WOETH_A, this.chainProvider)
         this.collateralAuctionHouseRAI_A = new IncreasingDiscountCollateralAuctionHouse(addressList.COLLATERAL_AUCTION_HOUSE_RAI_A, this.chainProvider)
         //this.medianizerCoin = new UniswapConsecutiveSlotsMedianRaiusd(addressList.MEDIANIZER_RAI, this.chainProvider)
         this.rateSetter = new PiRateSetter(addressList.GEB_RRFM_SETTER, this.chainProvider)
@@ -259,12 +265,14 @@ export class MultiCollateralContractApis {
         this.fsmWstEth = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_WSTETH, this.chainProvider)
         this.fsmREth = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_RETH, this.chainProvider)
         this.fsmCBEth = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_CBETH, this.chainProvider)
+        this.fsmWOEth = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_WOETH, this.chainProvider)
         this.fsmRai = new ExternallyFundedOsm(addressList.FEED_SECURITY_MODULE_RAI, this.chainProvider)
         this.rateTwapBundler = new BasefeeRateTwapCallBundler(addressList.GEB_RATE_TWAP_INCENTIVES, this.chainProvider)
         this.ethBundler = new BasefeeOsmDeviationCallBundler(addressList.GEB_OSM_INCENTIVES_ETH, this.chainProvider)
         this.wstethBundler = new BasefeeOsmDeviationCallBundler(addressList.GEB_OSM_INCENTIVES_WSTETH, this.chainProvider)
         this.rethBundler = new BasefeeOsmDeviationCallBundler(addressList.GEB_OSM_INCENTIVES_RETH, this.chainProvider)
         this.cbethBundler = new BasefeeOsmDeviationCallBundler(addressList.GEB_OSM_INCENTIVES_CBETH, this.chainProvider)
+        this.woethBundler = new BasefeeOsmDeviationCallBundler(addressList.GEB_OSM_INCENTIVES_WOETH, this.chainProvider)
         this.raiBundler = new BasefeeOsmDeviationCallBundler(addressList.GEB_OSM_INCENTIVES_RAI, this.chainProvider)
         this.weth = new Weth9(addressList.ETH, this.chainProvider)
         this.protEmitter = new ProtEmitter(addressList.GEB_PROT_EMITTER, this.chainProvider)
