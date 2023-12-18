@@ -50,7 +50,7 @@ export class Multicall extends BaseContractAPI {
 
         return this.ethCallOrMulticall(abi, [calls], multicall)
     }
-
+    
     getBlockHash(blockNumber: BigNumberish): Promise<string>
     getBlockHash(
         blockNumber: BigNumberish,
